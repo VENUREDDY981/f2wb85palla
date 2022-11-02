@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  h1= title
+  -
+   let results =[
+      {
+        "earphone_Name": "Apple airpods",
+        "Manafacture Location": "UNITED STATES OF AMERICA",
+        "price": 180
+      },
+      {
+        "earphone_Name": "Apple airpods pro",
+        "Manafacture Location": "AMERICA",
+        "price": 240
+      },
+      {
+        "earphone_Name": "Skull Candy",
+        "Manafacture Location": "JAPAN",
+        "price": 280,
+      },
+      {
+        "earphone_Name": "Realme airpods",
+        "Manafacture Location": "CHINA",
+        "price":160,
+      },
+      {
+        "earphone_Name": "Oneplus airpods pro",
+        "Manafacture Location": "RUSSIA",
+        "price": 200,
+      }
+    ]
+  .container-fluid 
+    .row 
+      each earphone in results
+        div(class="col-sm-2" onclick=`buy(${results.indexOf(earphone)})`) 
+          each value,key in earphone 
+            = " " +value
+  script.
+    function buy(item){
+      alert("You purchased item "+item)
+    }
